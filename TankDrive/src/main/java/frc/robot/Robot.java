@@ -8,12 +8,12 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class Robot extends TimedRobot {
 
     // Motor controllers for the left side
-    CANSparkMax m_leftLeader = new CANSparkMax(3, CANSparkMax.MotorType.kBrushless);
-    CANSparkMax m_leftFollower = new CANSparkMax(4, CANSparkMax.MotorType.kBrushless);
+    CANSparkMax m_leftLeader = new CANSparkMax(3, CANSparkMax.MotorType.kBrushed);
+    CANSparkMax m_leftFollower = new CANSparkMax(4, CANSparkMax.MotorType.kBrushed);
 
     // Motor controllers for the right side
-    CANSparkMax m_rightLeader = new CANSparkMax(1, CANSparkMax.MotorType.kBrushless);
-    CANSparkMax m_rightFollower = new CANSparkMax(2, CANSparkMax.MotorType.kBrushless);
+    CANSparkMax m_rightLeader = new CANSparkMax(1, CANSparkMax.MotorType.kBrushed);
+    CANSparkMax m_rightFollower = new CANSparkMax(2, CANSparkMax.MotorType.kBrushed);
 
     // Xbox controller for driver input
     XboxController m_driverJoy = new XboxController(0);
@@ -37,7 +37,6 @@ public class Robot extends TimedRobot {
         // Invert the values if needed based on your robot's orientation
         double leftSpeed = -m_driverJoy.getRawAxis(1);
         double rightSpeed = -m_driverJoy.getRawAxis(5); // Assuming axis 5 for the right joystick
-
         // Drive the robot using tank drive
         m_drive.tankDrive(leftSpeed, rightSpeed);
     }
